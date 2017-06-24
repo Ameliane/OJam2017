@@ -53,11 +53,11 @@ public class EnemyManager : MonoBehaviour
         m_EnemyType = (EnemyType)randomEnemy;
 
         // Choose between 1 or 2
-        int randomAmount = Random.Range(1, 2);
-        if(randomAmount == 2)
-        {
-            m_Enemy2 = Instantiate(m_Enemies[randomEnemy], m_EnemyPos2);
-        }
+        //int randomAmount = Random.Range(1, 3);
+        //if(randomAmount == 2)
+        //{
+        //    m_Enemy2 = Instantiate(m_Enemies[randomEnemy], m_EnemyPos2);
+        //}
     }
 
     public void Death()

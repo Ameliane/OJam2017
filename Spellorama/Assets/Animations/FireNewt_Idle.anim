@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Shark_Idle
+  m_Name: FireNewt_Idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,11 +19,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 1e20960acf4a5414987c7439bec3fff2, type: 3}
+      value: {fileID: 21300000, guid: 93ee363933bcc654996da23fa1b9bacc, type: 3}
     - time: 0.28333333
-      value: {fileID: 21300000, guid: acf65b40d7a20f848a3609b2f1b8080d, type: 3}
+      value: {fileID: 21300000, guid: c16df1e34e4d32949a0287817acfea37, type: 3}
     - time: 0.5833333
-      value: {fileID: 21300000, guid: 1e20960acf4a5414987c7439bec3fff2, type: 3}
+      value: {fileID: 21300000, guid: 93ee363933bcc654996da23fa1b9bacc, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -43,9 +43,9 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 1e20960acf4a5414987c7439bec3fff2, type: 3}
-    - {fileID: 21300000, guid: acf65b40d7a20f848a3609b2f1b8080d, type: 3}
-    - {fileID: 21300000, guid: 1e20960acf4a5414987c7439bec3fff2, type: 3}
+    - {fileID: 21300000, guid: 93ee363933bcc654996da23fa1b9bacc, type: 3}
+    - {fileID: 21300000, guid: c16df1e34e4d32949a0287817acfea37, type: 3}
+    - {fileID: 21300000, guid: 93ee363933bcc654996da23fa1b9bacc, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

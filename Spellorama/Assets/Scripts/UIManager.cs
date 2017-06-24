@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
         m_FloorLevel.SetActive(true);
         // TODO: Place somewhere else
         m_SpellWheel.SetActive(true);
-        EnemyManager.Instance.NewEnemy();
+        GameManager.Instance.StartGame();
     }
 
     public void ExitGame()
@@ -53,6 +53,11 @@ public class UIManager : MonoBehaviour
         m_SpellWheel.SetActive(false);
         m_FloorLevel.SetActive(false);
         m_TitleCard.SetActive(true);
+    }
+
+    public void ActivateSpellWheel(bool aActivate)
+    {
+        m_SpellWheel.SetActive(aActivate);
     }
 
     public void OnSpellClick(Image aImage)

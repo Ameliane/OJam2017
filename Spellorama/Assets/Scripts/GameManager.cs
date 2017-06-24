@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour {
 
     public Wizard m_Wizard;
 
+    public Transform m_ArrivalPos;
+    public Transform m_ExitPos;
+
     int m_CurrentFloor = 0;
     int m_MaxFloor = 0;
 
@@ -32,16 +35,16 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void StartGame()
+    {
+        EnemyManager.Instance.NewEnemy();
+    }
+
     public void Win()
     {
         //Move Player
+        StartCoroutine(MonsterDeathSequence_cr());
 
-        //Change Floor
-        m_CurrentFloor++;
-        UIManager.Instance.UpdateFloor(m_CurrentFloor);
-
-        //Spawn new enemy
-        EnemyManager.Instance.NewEnemy();
     }
 
     public void Lose()
@@ -54,14 +57,9 @@ public class GameManager : MonoBehaviour {
         UIManager.Instance.SetFloorRecords(m_CurrentFloor, m_MaxFloor);
 
 
-        // TODO: Wait before doing so
         // Go to title screen
-        UIManager.Instance.ReturnMenu();
+        StartCoroutine(WizardDeathSequence_cr());
 
-        Reset();
-
-        
-        
     }
 
     public void Reset()
@@ -75,9 +73,62 @@ public class GameManager : MonoBehaviour {
 
         // Enemy Reset
         EnemyManager.Instance.Death();
-        //EnemyManager.Instance.NewEnemy(); // TODO: Is currently happening in UIManager, should be here.
 
         // Spell Reset
         SpellManager.Instance.ResetAllSpells();
+    }
+
+    private IEnumerator MonsterDeathSequence_cr()
+    {
+        UIManager.Instance.ActivateSpellWheel(false);
+        // move to player
+        float t = 0;
+        Vector2 start = m_ArrivalPos.position;
+        while (t < 4)
+        {
+            m_Wizard.transform.position = Vector3.Lerp(start, m_ExitPos.position, t / 4);
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        m_Wizard.transform.position = m_ExitPos.position;
+
+        yield return null;
+
+        m_Wizard.GetComponentInChildren<SpriteRenderer>().flipX = true;
+
+        t = 0;
+        while (t < 0.5)
+        {
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        //Change Floor
+        m_CurrentFloor++;
+        UIManager.Instance.UpdateFloor(m_CurrentFloor);
+
+        // Move Player
+        m_Wizard.GetComponentInChildren<SpriteRenderer>().flipX = false;
+        m_Wizard.transform.position = m_ArrivalPos.position;
+
+        //Spawn new enemy
+        EnemyManager.Instance.NewEnemy();
+
+        UIManager.Instance.ActivateSpellWheel(true);
+    }
+
+    private IEnumerator WizardDeathSequence_cr()
+    {
+        float t = 0;
+        while (t < 5)
+        {
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        UIManager.Instance.ReturnMenu();
+
+        Reset();
     }
 }
