@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour {
         UIManager.Instance.UpdateFloor(m_CurrentFloor);
 
         //Spawn new enemy
+        EnemyManager.Instance.NewEnemy();
     }
 
     public void Lose()
@@ -52,10 +53,14 @@ public class GameManager : MonoBehaviour {
         m_MaxFloor = (m_MaxFloor > m_CurrentFloor) ? m_MaxFloor : m_CurrentFloor;
         UIManager.Instance.SetFloorRecords(m_CurrentFloor, m_MaxFloor);
 
+
+        // TODO: Wait before doing so
         // Go to title screen
         UIManager.Instance.ReturnMenu();
 
         Reset();
+
+        
         
     }
 
@@ -69,6 +74,8 @@ public class GameManager : MonoBehaviour {
         m_Wizard.Reset();
 
         // Enemy Reset
+        EnemyManager.Instance.Death();
+        //EnemyManager.Instance.NewEnemy(); // TODO: Is currently happening in UIManager, should be here.
 
         // Spell Reset
         SpellManager.Instance.ResetAllSpells();

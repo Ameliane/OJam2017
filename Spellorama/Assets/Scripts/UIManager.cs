@@ -40,6 +40,7 @@ public class UIManager : MonoBehaviour
         m_FloorLevel.SetActive(true);
         // TODO: Place somewhere else
         m_SpellWheel.SetActive(true);
+        EnemyManager.Instance.NewEnemy();
     }
 
     public void ExitGame()

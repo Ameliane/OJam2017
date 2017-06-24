@@ -17,29 +17,29 @@ public class Chicken : MonoBehaviour
 
     private void OnEnable()
     {
-        Activate(Enemy.EnemyType.IMP, 1);
+        Activate(EnemyManager.EnemyType.Imp, 1);
     }
 
-    void Activate(Enemy.EnemyType aType, int aNum)
+    void Activate(EnemyManager.EnemyType aType, int aNum)
     {
 
         Debug.Log("Activating Chicken Spell");
 
         switch (aType)
         {
-            case Enemy.EnemyType.IMP:
+            case EnemyManager.EnemyType.Imp:
                 AttackImp(aNum);
                 break;
-            case Enemy.EnemyType.FIRE:
+            case EnemyManager.EnemyType.Fire:
                 AttackFire(aNum);
                 break;
-            case Enemy.EnemyType.ICE:
+            case EnemyManager.EnemyType.Snowman:
                 AttackIce(aNum);
                 break;
-            case Enemy.EnemyType.ELECTRIC:
+            case EnemyManager.EnemyType.Electric:
                 AttackElectric(aNum);
                 break;
-            case Enemy.EnemyType.SPACE:
+            case EnemyManager.EnemyType.Shark:
                 AttackSpace(aNum);
                 break;
             default:
@@ -51,6 +51,7 @@ public class Chicken : MonoBehaviour
 
     void AttackImp(int aNum)
     {
+        EnemyManager.Instance.Death();
         GameManager.Instance.Win();
     }
 
