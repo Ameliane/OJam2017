@@ -17,7 +17,7 @@ public class Chicken : MonoBehaviour
 
     private void OnEnable()
     {
-        Activate(Enemy.EnemyType.ICE, 1);
+        Activate(Enemy.EnemyType.IMP, 1);
     }
 
     void Activate(Enemy.EnemyType aType, int aNum)
@@ -51,7 +51,7 @@ public class Chicken : MonoBehaviour
 
     void AttackImp(int aNum)
     {
-
+        GameManager.Instance.Win();
     }
 
     void AttackFire(int aNum)

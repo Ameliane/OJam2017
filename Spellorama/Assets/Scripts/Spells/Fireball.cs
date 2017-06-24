@@ -17,7 +17,7 @@ public class Fireball : MonoBehaviour
 
     private void OnEnable()
     {
-        Activate(Enemy.EnemyType.ICE, 1);
+        Activate(Enemy.EnemyType.IMP, 1);
     }
 
     void Activate(Enemy.EnemyType aType, int aNum)
@@ -51,7 +51,7 @@ public class Fireball : MonoBehaviour
 
     void AttackImp(int aNum)
     {
-
+        GameManager.Instance.Lose();
     }
 
     void AttackFire(int aNum)

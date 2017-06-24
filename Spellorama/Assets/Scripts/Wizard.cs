@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Wizard : MonoBehaviour
 {
+    [SerializeField]
+    Animator m_Animator;
+    [SerializeField]
+    GameObject m_AliveWizard;
+    [SerializeField]
+    GameObject m_DeadWizard;
 
     void Start()
     {
@@ -13,5 +19,17 @@ public class Wizard : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void Death()
+    {
+        m_AliveWizard.SetActive(false);
+        m_DeadWizard.SetActive(true);
+    }
+
+    public void Reset()
+    {
+        m_DeadWizard.SetActive(false);
+        m_AliveWizard.SetActive(true);
     }
 }

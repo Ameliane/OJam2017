@@ -23,15 +23,20 @@ public class SpellManager : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < m_Spells.Length; i++)
-        {
-            AssignSpell(i);
-        }
+        
     }
 
     void Update()
     {
 
+    }
+
+    public void ResetAllSpells()
+    {
+        for (int i = 0; i < m_Spells.Length; i++)
+        {
+            AssignSpell(i);
+        }
     }
 
     public void AssignSpell(int i)
