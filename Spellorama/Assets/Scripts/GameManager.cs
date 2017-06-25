@@ -154,17 +154,24 @@ public class GameManager : MonoBehaviour {
         EnemyManager.Instance.PreDeath();
 
         UIManager.Instance.ActivateSpellWheel(false);
-        // move to player
+
+        yield return new WaitForSeconds(1);
+
+        // Move player
         float t = 0;
         Vector2 start = m_ArrivalPos.position;
         while (t < 4)
         {
             m_Wizard.transform.position = Vector3.Lerp(start, m_ExitPos.position, t / 4);
             t += Time.deltaTime;
+
+            if(t > 3)
+                EnemyManager.Instance.Death();
+
             yield return null;
         }
 
-        EnemyManager.Instance.Death();
+        
         m_Wizard.transform.position = m_ExitPos.position;
 
         yield return new WaitForSeconds(0.05f);

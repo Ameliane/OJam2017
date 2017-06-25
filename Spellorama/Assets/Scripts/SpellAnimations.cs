@@ -34,4 +34,10 @@ public class SpellAnimations : MonoBehaviour
     {
         GameManager.Instance.WizardSquish();
     }
+
+    public void EnemyTornado()
+    {
+        if (GameManager.Instance.IsEnemySusceptible())
+            EnemyManager.Instance.EnemyMove();
+    }
 }

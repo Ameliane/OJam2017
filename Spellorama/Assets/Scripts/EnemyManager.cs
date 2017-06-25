@@ -91,9 +91,6 @@ public class EnemyManager : MonoBehaviour
             DestroyImmediate(m_Enemy);
             m_Enemy = null;
         }
-
-        //DestroyImmediate(m_Enemy2);
-        //m_Enemy2 = null;
     }
 
     public void EnemyFall()
@@ -106,6 +103,24 @@ public class EnemyManager : MonoBehaviour
         float t = 0;
         Vector2 start = m_Enemy.transform.position;
         Vector2 end = m_Enemy.transform.position + new Vector3(0, -10, 0);
+        while (t < 2)
+        {
+            m_Enemy.transform.position = Vector3.Lerp(start, end, t / 2);
+            t += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    public void EnemyMove()
+    {
+        StartCoroutine(EnemyMoveSequence_cr());
+    }
+
+    private IEnumerator EnemyMoveSequence_cr()
+    {
+        float t = 0;
+        Vector2 start = m_Enemy.transform.position;
+        Vector2 end = m_Enemy.transform.position + new Vector3(10, 0, 0);
         while (t < 2)
         {
             m_Enemy.transform.position = Vector3.Lerp(start, end, t / 2);
