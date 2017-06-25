@@ -51,6 +51,7 @@ public class SpellManager : MonoBehaviour
     public void SpellClick(Sprite aSprite)
     {
         m_SpellDictionary.GetScript(aSprite).enabled = true;
+        UIManager.Instance.ActivateSpellWheel(false);
     }
 
     public void StartEffect(Spell.SpellType aType)

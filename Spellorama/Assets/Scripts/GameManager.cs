@@ -18,17 +18,16 @@ public class GameManager : MonoBehaviour {
 
     bool m_IsSusceptible = false;
 
+    bool m_IsShielded = false;
+
+    bool m_GameLost = false;
+
     void Awake()
     {
         if (Instance == null)
             Instance = this;
         else
             Destroy(gameObject);
-    }
-
-    void Start()
-    {
-
     }
 
     void Update()
@@ -43,6 +42,16 @@ public class GameManager : MonoBehaviour {
     {
         EnemyManager.Instance.NewEnemy();
         SpellManager.Instance.ResetAllSpells();
+    }
+
+    public void SetShield(bool aShield)
+    {
+        m_IsShielded = aShield;
+    }
+
+    public bool IsShielded()
+    {
+        return m_IsShielded;
     }
 
     public bool IsEnemySusceptible()
@@ -71,7 +80,9 @@ public class GameManager : MonoBehaviour {
         UIManager.Instance.UpdateHearts(m_Life);
 
         if (m_Life <= 0)
-        {            
+        {
+            m_GameLost = true;
+
             // Kill Player
             m_Wizard.Death();
 
@@ -86,13 +97,21 @@ public class GameManager : MonoBehaviour {
 
     }
 
+    public bool GetGameLost()
+    {
+        return m_GameLost;
+    }
+
     public void Shield()
     {
         EnemyManager.Instance.EnemyAttack();
     }
 
+
     public void Reset()
     {
+        m_GameLost = false;
+
         // Reset Life
         m_Life = 3;
         UIManager.Instance.UpdateHearts(m_Life);
@@ -107,6 +126,28 @@ public class GameManager : MonoBehaviour {
         // Enemy Reset
         EnemyManager.Instance.Death();
                 
+    }
+
+    public void WizardSquish()
+    {
+        StartCoroutine(WizardSquishSequence_cr());
+    }
+
+    private IEnumerator WizardSquishSequence_cr()
+    {
+        float t = 0;
+        Vector2 fullSize = m_Wizard.transform.localScale;
+        Vector2 tinySize = new Vector2(m_Wizard.transform.localScale.x, 0);
+        while (t < 2)
+        {
+            m_Wizard.transform.localScale = Vector3.Lerp(fullSize, tinySize, t / 2);
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.25f);
+
+        m_Wizard.transform.localScale = fullSize;
     }
 
     private IEnumerator MonsterDeathSequence_cr()
@@ -127,16 +168,11 @@ public class GameManager : MonoBehaviour {
         EnemyManager.Instance.Death();
         m_Wizard.transform.position = m_ExitPos.position;
 
-        yield return null;
+        yield return new WaitForSeconds(0.05f);
 
         m_Wizard.GetComponentInChildren<SpriteRenderer>().flipX = true;
 
-        t = 0;
-        while (t < 0.5)
-        {
-            t += Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(0.5f);
 
         //Change Floor
         m_CurrentFloor++;

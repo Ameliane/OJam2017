@@ -65,13 +65,13 @@ public class Tornado : MonoBehaviour
 
     void AttackShark(int aNum)
     {
-        GameManager.Instance.Lose();
+        GameManager.Instance.Win();
         Debug.Log("Against Shark");
     }
 
     void AttackFireNewt(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Newt");
     }
 

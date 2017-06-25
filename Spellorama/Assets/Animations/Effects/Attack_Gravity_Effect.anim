@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Shield_Effect
+  m_Name: Attack_Gravity_Effect
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -51,15 +51,15 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 2
-    functionName: SelfDestruct
+  - time: 0.083333336
+    functionName: WizardSquish
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 2
-    functionName: Unshield
+    functionName: SelfDestruct
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
