@@ -75,6 +75,11 @@ public class GameManager : MonoBehaviour {
 
     }
 
+    public void Shield()
+    {
+        EnemyManager.Instance.EnemyAttack();
+    }
+
     public void Reset()
     {
         // Reset Life
