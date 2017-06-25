@@ -60,6 +60,11 @@ public class EnemyManager : MonoBehaviour
         //}
     }
 
+    public void PreDeath()
+    {
+        m_Enemy1.GetComponentInChildren<Animator>().SetTrigger("Death");
+    }
+
     public void Death()
     {
         m_EnemyType = EnemyType.Count;

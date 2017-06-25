@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour {
 
     private IEnumerator MonsterDeathSequence_cr()
     {
-        EnemyManager.Instance.Death();
+        EnemyManager.Instance.PreDeath();
 
         UIManager.Instance.ActivateSpellWheel(false);
         // move to player
@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour {
             yield return null;
         }
 
+        EnemyManager.Instance.Death();
         m_Wizard.transform.position = m_ExitPos.position;
 
         yield return null;

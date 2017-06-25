@@ -13,6 +13,8 @@ public class SpellManager : MonoBehaviour
     [SerializeField]
     SpellDictionary m_SpellDictionary;
 
+    public float m_EffecTime = 2f;
+
     void Awake()
     {
         if (Instance == null)

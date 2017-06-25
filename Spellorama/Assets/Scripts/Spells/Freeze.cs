@@ -17,7 +17,8 @@ public class Freeze : MonoBehaviour
 
     private void OnEnable()
     {
-        Activate(EnemyManager.Instance.m_EnemyType, 1);
+        StartCoroutine(Effect_cr());
+        UIManager.Instance.ActivateSpellWheel(false);
     }
 
     void Activate(EnemyManager.EnemyType aType, int aNum)
@@ -45,9 +46,7 @@ public class Freeze : MonoBehaviour
 
             default:
                 break;
-        }
-
-        enabled = false;
+        }        
     }
 
     void AttackImp(int aNum)
@@ -78,6 +77,28 @@ public class Freeze : MonoBehaviour
     {
         GameManager.Instance.Win();
         Debug.Log("Against Jellyfish");
+    }
+
+    private IEnumerator Effect_cr()
+    {
+
+        float t = 0;
+        while (t < SpellManager.Instance.m_EffecTime / 2)
+        {
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        Activate(EnemyManager.Instance.m_EnemyType, 1);
+        yield return null;
+
+        while (t < SpellManager.Instance.m_EffecTime)
+        {
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        enabled = false;
     }
 
 }
