@@ -18,6 +18,7 @@ public class Frog : MonoBehaviour
     private void OnEnable()
     {
         Activate(EnemyManager.Instance.m_EnemyType, 1);
+        SpellManager.Instance.StartEffect(Spell.SpellType.Frog);
     }
 
     void Activate(EnemyManager.EnemyType aType, int aNum)

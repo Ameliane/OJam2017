@@ -18,6 +18,7 @@ public class Chicken : MonoBehaviour
     private void OnEnable()
     {
         Activate(EnemyManager.Instance.m_EnemyType, 1);
+        SpellManager.Instance.StartEffect(Spell.SpellType.Chicken);
     }
 
     void Activate(EnemyManager.EnemyType aType, int aNum)

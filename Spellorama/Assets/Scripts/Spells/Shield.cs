@@ -18,6 +18,7 @@ public class Shield : MonoBehaviour
     private void OnEnable()
     {
         Activate(EnemyManager.Instance.m_EnemyType, 1);
+        SpellManager.Instance.StartEffect(Spell.SpellType.Shield);
     }
 
     void Activate(EnemyManager.EnemyType aType, int aNum)

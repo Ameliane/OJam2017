@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour {
     private IEnumerator WizardDeathSequence_cr()
     {
         float t = 0;
-        while (t < 5)
+        while (t < 3.5)
         {
             t += Time.deltaTime;
             yield return null;
