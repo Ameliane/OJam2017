@@ -23,16 +23,6 @@ public class SpellManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-
-    }
-
     public void ResetAllSpells()
     {
         for (int i = 0; i < m_Spells.Length; i++)

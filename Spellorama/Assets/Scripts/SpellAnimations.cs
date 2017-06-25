@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class SpellAnimations : MonoBehaviour
 {
-    
-    void Start()
-    {
-
-    }
-    
-    void Update()
-    {
-
-    }
 
     public void SelfDestruct()
     {

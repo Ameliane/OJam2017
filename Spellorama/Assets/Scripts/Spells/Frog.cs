@@ -5,16 +5,6 @@ using UnityEngine;
 public class Frog : MonoBehaviour
 {
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
-
     private void OnEnable()
     {
         Activate(EnemyManager.Instance.m_EnemyType, 1);
@@ -23,8 +13,6 @@ public class Frog : MonoBehaviour
 
     void Activate(EnemyManager.EnemyType aType, int aNum)
     {
-
-        Debug.Log("Activating Frog Spell");
 
         switch (aType)
         {
@@ -54,31 +42,26 @@ public class Frog : MonoBehaviour
     void AttackImp(int aNum)
     {
         GameManager.Instance.Win();
-        Debug.Log("Against Imp");
     }
 
     void AttackSnowman(int aNum)
     {
         GameManager.Instance.Lose();
-        Debug.Log("Against Snowman");
     }
 
     void AttackShark(int aNum)
     {
         GameManager.Instance.Win();
-        Debug.Log("Against Shark");
     }
 
     void AttackFireNewt(int aNum)
     {
         GameManager.Instance.Win();
-        Debug.Log("Against Newt");
     }
 
     void AttackJellyfish(int aNum)
     {
         GameManager.Instance.Lose();
-        Debug.Log("Against Jellyfish");
     }
 
 }

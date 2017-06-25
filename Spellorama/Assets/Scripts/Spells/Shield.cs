@@ -5,16 +5,6 @@ using UnityEngine;
 public class Shield : MonoBehaviour
 {
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
-
     private void OnEnable()
     {
         GameManager.Instance.SetShield(true);
@@ -24,8 +14,6 @@ public class Shield : MonoBehaviour
 
     void Activate(EnemyManager.EnemyType aType, int aNum)
     {
-
-        Debug.Log("Activating Shield Spell");
 
         GameManager.Instance.Shield();
 

@@ -35,16 +35,6 @@ public class EnemyManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
-
     public void NewEnemy()
     {
         // Choose what enemy type
@@ -63,27 +53,22 @@ public class EnemyManager : MonoBehaviour
             case EnemyType.Imp:
                 // Shooting Star
                 GameObject.Instantiate(m_Attacks[(int)m_EnemyType]);
-                Debug.Log("Imp attack!");
                 break;
             case EnemyType.Snowman:
                 // Freeze
                 GameObject.Instantiate(m_Attacks[(int)m_EnemyType]);
-                Debug.Log("Snowman attack!");
                 break;
             case EnemyType.Shark:
                 // Gravity
                 GameObject.Instantiate(m_Attacks[(int)m_EnemyType]);
-                Debug.Log("Shark attack!");
                 break;
             case EnemyType.FireNewt:
                 // Fireball
                 GameObject.Instantiate(m_Attacks[(int)m_EnemyType]);
-                Debug.Log("Newt attack!");
                 break;
             case EnemyType.Jellyfish:
                 // Electricity
                 GameObject.Instantiate(m_Attacks[(int)m_EnemyType]);
-                Debug.Log("Jellyfish attack!");
                 break;
             case EnemyType.Count:
                 break;

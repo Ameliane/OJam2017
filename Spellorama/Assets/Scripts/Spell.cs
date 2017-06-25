@@ -29,7 +29,6 @@ public class Spell
     public Image m_Image;
     public SpellType m_Type;
 
-
 }
 
 [System.Serializable]

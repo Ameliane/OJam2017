@@ -107,7 +107,6 @@ public class GameManager : MonoBehaviour {
         EnemyManager.Instance.EnemyAttack();
     }
 
-
     public void Reset()
     {
         m_GameLost = false;

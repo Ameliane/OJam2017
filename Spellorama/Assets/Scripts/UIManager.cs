@@ -26,21 +26,10 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-
-    }
-
     public void StartGame()
     {
         m_TitleCard.SetActive(false);
         m_UICanvas.SetActive(true);
-        // TODO: Place somewhere else
         m_SpellWheel.SetActive(true);
         GameManager.Instance.StartGame();
     }

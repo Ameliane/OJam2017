@@ -11,16 +11,6 @@ public class Wizard : MonoBehaviour
     [SerializeField]
     GameObject m_DeadWizard;
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
-
     public void Death()
     {
         m_AliveWizard.SetActive(false);
