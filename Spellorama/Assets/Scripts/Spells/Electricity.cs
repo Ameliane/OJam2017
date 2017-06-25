@@ -52,7 +52,7 @@ public class Electricity : MonoBehaviour
 
     void AttackImp(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Imp");
     }
 
@@ -76,7 +76,7 @@ public class Electricity : MonoBehaviour
 
     void AttackJellyfish(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Jellyfish");
     }
 

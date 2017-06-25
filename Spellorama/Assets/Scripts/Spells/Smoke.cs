@@ -52,13 +52,13 @@ public class Smoke : MonoBehaviour
 
     void AttackImp(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Imp");
     }
 
     void AttackSnowman(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Snowman");
     }
 

@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
     int m_CurrentFloor = 0;
     int m_MaxFloor = 0;
 
+    int m_Life = 3;
+
     void Awake()
     {
         if (Instance == null)
@@ -50,21 +52,35 @@ public class GameManager : MonoBehaviour {
 
     public void Lose()
     {
-        // Kill Player
-        m_Wizard.Death();
+        // Enemy Attack
+        EnemyManager.Instance.EnemyAttack();
 
-        // Show max level and current level
-        m_MaxFloor = (m_MaxFloor > m_CurrentFloor) ? m_MaxFloor : m_CurrentFloor;
-        UIManager.Instance.SetFloorRecords(m_CurrentFloor, m_MaxFloor);
+        m_Life--;
+
+        UIManager.Instance.UpdateHearts(m_Life);
+
+        if (m_Life <= 0)
+        {            
+            // Kill Player
+            m_Wizard.Death();
+
+            // Show max level and current level
+            m_MaxFloor = (m_MaxFloor > m_CurrentFloor) ? m_MaxFloor : m_CurrentFloor;
+            UIManager.Instance.SetFloorRecords(m_CurrentFloor, m_MaxFloor);
 
 
-        // Go to title screen
-        StartCoroutine(WizardDeathSequence_cr());
+            // Go to title screen
+            StartCoroutine(WizardDeathSequence_cr());
+        }
 
     }
 
     public void Reset()
     {
+        // Reset Life
+        m_Life = 3;
+        UIManager.Instance.UpdateHearts(m_Life);
+
         // Reset Floor        
         m_CurrentFloor = 0;
         UIManager.Instance.UpdateFloor(m_CurrentFloor);
@@ -74,9 +90,7 @@ public class GameManager : MonoBehaviour {
 
         // Enemy Reset
         EnemyManager.Instance.Death();
-
-        // Spell Reset
-        SpellManager.Instance.ResetAllSpells();
+                
     }
 
     private IEnumerator MonsterDeathSequence_cr()

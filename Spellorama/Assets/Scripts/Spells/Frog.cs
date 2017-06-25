@@ -58,7 +58,7 @@ public class Frog : MonoBehaviour
 
     void AttackSnowman(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Snowman");
     }
 
@@ -76,7 +76,7 @@ public class Frog : MonoBehaviour
 
     void AttackJellyfish(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Jellyfish");
     }
 

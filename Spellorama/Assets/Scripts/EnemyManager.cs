@@ -60,6 +60,37 @@ public class EnemyManager : MonoBehaviour
         //}
     }
 
+    public void EnemyAttack()
+    {
+        switch (m_EnemyType)
+        {
+            case EnemyType.Imp:
+                // Shooting Star
+                Debug.Log("Imp attack!");
+                break;
+            case EnemyType.Snowman:
+                // Freeze
+                Debug.Log("Snowman attack!");
+                break;
+            case EnemyType.Shark:
+                // Gravity
+                Debug.Log("Shark attack!");
+                break;
+            case EnemyType.FireNewt:
+                // Fireball
+                Debug.Log("Newt attack!");
+                break;
+            case EnemyType.Jellyfish:
+                // Electricity
+                Debug.Log("Jellyfish attack!");
+                break;
+            case EnemyType.Count:
+                break;
+            default:
+                break;
+        }
+    }
+
     public void PreDeath()
     {
         m_Enemy1.GetComponentInChildren<Animator>().SetTrigger("Death");
@@ -69,8 +100,11 @@ public class EnemyManager : MonoBehaviour
     {
         m_EnemyType = EnemyType.Count;
 
-        DestroyImmediate(m_Enemy1);
-        m_Enemy1 = null;
+        if (m_Enemy1 != null)
+        {
+            DestroyImmediate(m_Enemy1);
+            m_Enemy1 = null;
+        }
 
         //DestroyImmediate(m_Enemy2);
         //m_Enemy2 = null;

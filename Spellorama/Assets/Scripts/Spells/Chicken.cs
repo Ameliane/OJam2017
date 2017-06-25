@@ -70,13 +70,13 @@ public class Chicken : MonoBehaviour
 
     void AttackFireNewt(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Newt");
     }
 
     void AttackJellyfish(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Jellyfish");
     }
 

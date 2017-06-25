@@ -18,7 +18,7 @@ public class Freeze : MonoBehaviour
     private void OnEnable()
     {
         StartCoroutine(Effect_cr());
-        UIManager.Instance.ActivateSpellWheel(false);
+        //UIManager.Instance.ActivateSpellWheel(false);
     }
 
     void Activate(EnemyManager.EnemyType aType, int aNum)
@@ -57,7 +57,7 @@ public class Freeze : MonoBehaviour
 
     void AttackSnowman(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Snowman");
     }
 
@@ -75,7 +75,7 @@ public class Freeze : MonoBehaviour
 
     void AttackJellyfish(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Jellyfish");
     }
 

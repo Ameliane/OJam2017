@@ -58,7 +58,7 @@ public class Stink : MonoBehaviour
 
     void AttackSnowman(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Snowman");
     }
 
@@ -70,7 +70,7 @@ public class Stink : MonoBehaviour
 
     void AttackFireNewt(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Newt");
     }
 

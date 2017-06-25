@@ -52,7 +52,7 @@ public class Love : MonoBehaviour
 
     void AttackImp(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Imp");
     }
 
@@ -64,7 +64,7 @@ public class Love : MonoBehaviour
 
     void AttackShark(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Shark");
     }
 

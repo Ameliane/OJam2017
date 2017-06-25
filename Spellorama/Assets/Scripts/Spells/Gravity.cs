@@ -64,13 +64,13 @@ public class Gravity : MonoBehaviour
 
     void AttackShark(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Shark");
     }
 
     void AttackFireNewt(int aNum)
     {
-        GameManager.Instance.Win();
+        GameManager.Instance.Lose();
         Debug.Log("Against Newt");
     }
 

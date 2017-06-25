@@ -8,13 +8,15 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance = null;
 
     public GameObject m_TitleCard;
-    public GameObject m_FloorLevel;
+    public GameObject m_UICanvas;
     public GameObject m_SpellWheel;
 
     public Text m_LastFloorAttempt;
     public Text m_BestFloorAttempt;
 
     public Text m_Floor;
+
+    public GameObject[] m_Hearts;
 
     void Awake()
     {
@@ -37,7 +39,7 @@ public class UIManager : MonoBehaviour
     public void StartGame()
     {
         m_TitleCard.SetActive(false);
-        m_FloorLevel.SetActive(true);
+        m_UICanvas.SetActive(true);
         // TODO: Place somewhere else
         m_SpellWheel.SetActive(true);
         GameManager.Instance.StartGame();
@@ -51,7 +53,7 @@ public class UIManager : MonoBehaviour
     public void ReturnMenu()
     {
         m_SpellWheel.SetActive(false);
-        m_FloorLevel.SetActive(false);
+        m_UICanvas.SetActive(false);
         m_TitleCard.SetActive(true);
     }
 
@@ -79,6 +81,17 @@ public class UIManager : MonoBehaviour
     {
         m_LastFloorAttempt.text = "Last Attempt : Floor " + aLastAttempt.ToString();
         m_BestFloorAttempt.text = "Best Attempt : Floor " + aBestAttempt.ToString();
+    }
+
+    public void UpdateHearts(int aLife)
+    {
+        for (int i = 0; i < m_Hearts.Length; i++)
+        {
+            if (i < aLife)
+                m_Hearts[i].SetActive(true);
+            else
+                m_Hearts[i].SetActive(false);
+        }
     }
 
 }
