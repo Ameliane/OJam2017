@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class Freeze : MonoBehaviour
 {
 
     void Start()
@@ -23,7 +23,7 @@ public class Fireball : MonoBehaviour
     void Activate(EnemyManager.EnemyType aType, int aNum)
     {
 
-        Debug.Log("Activating Fireball Spell");
+        Debug.Log("Activating Freeze Spell");
 
         switch (aType)
         {

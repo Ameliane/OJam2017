@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour {
     public void StartGame()
     {
         EnemyManager.Instance.NewEnemy();
+        SpellManager.Instance.ResetAllSpells();
     }
 
     public void Win()
@@ -80,6 +81,8 @@ public class GameManager : MonoBehaviour {
 
     private IEnumerator MonsterDeathSequence_cr()
     {
+        EnemyManager.Instance.Death();
+
         UIManager.Instance.ActivateSpellWheel(false);
         // move to player
         float t = 0;

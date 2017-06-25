@@ -11,8 +11,8 @@ public class EnemyManager : MonoBehaviour
         Imp,
         Snowman,
         Shark,
-        Fire,
-        Electric,
+        FireNewt,
+        Jellyfish,
         Count
     };
 
@@ -23,9 +23,9 @@ public class EnemyManager : MonoBehaviour
     public Transform m_EnemyPos2;
 
     GameObject m_Enemy1;
-    GameObject m_Enemy2;
+    //GameObject m_Enemy2;
 
-    EnemyType m_EnemyType = EnemyType.Count;
+    public EnemyType m_EnemyType = EnemyType.Count;
 
     void Awake()
     {
@@ -67,7 +67,7 @@ public class EnemyManager : MonoBehaviour
         DestroyImmediate(m_Enemy1);
         m_Enemy1 = null;
 
-        DestroyImmediate(m_Enemy2);
-        m_Enemy2 = null;
+        //DestroyImmediate(m_Enemy2);
+        //m_Enemy2 = null;
     }
 }

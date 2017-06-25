@@ -9,7 +9,20 @@ public class Spell
     public enum SpellType
     {
         Fireball,
+        Freeze,
+        Rain,
+        ShootingStar,
+        Sleep,
+        Love,
+        Tornado,
+        Hole,
+        Frog,
+        Electricity,
+        Smoke,
         Chicken,
+        Stink,
+        Shield,
+        Gravity,
         Count
     };
 

@@ -17,7 +17,7 @@ public class Chicken : MonoBehaviour
 
     private void OnEnable()
     {
-        Activate(EnemyManager.EnemyType.Imp, 1);
+        Activate(EnemyManager.Instance.m_EnemyType, 1);
     }
 
     void Activate(EnemyManager.EnemyType aType, int aNum)
@@ -30,18 +30,19 @@ public class Chicken : MonoBehaviour
             case EnemyManager.EnemyType.Imp:
                 AttackImp(aNum);
                 break;
-            case EnemyManager.EnemyType.Fire:
-                AttackFire(aNum);
-                break;
             case EnemyManager.EnemyType.Snowman:
-                AttackIce(aNum);
-                break;
-            case EnemyManager.EnemyType.Electric:
-                AttackElectric(aNum);
+                AttackSnowman(aNum);
                 break;
             case EnemyManager.EnemyType.Shark:
-                AttackSpace(aNum);
+                AttackShark(aNum);
                 break;
+            case EnemyManager.EnemyType.FireNewt:
+                AttackFireNewt(aNum);
+                break;
+            case EnemyManager.EnemyType.Jellyfish:
+                AttackJellyfish(aNum);
+                break;
+
             default:
                 break;
         }
@@ -51,29 +52,32 @@ public class Chicken : MonoBehaviour
 
     void AttackImp(int aNum)
     {
-        EnemyManager.Instance.Death();
         GameManager.Instance.Win();
+        Debug.Log("Against Imp");
     }
 
-    void AttackFire(int aNum)
+    void AttackSnowman(int aNum)
     {
-
+        GameManager.Instance.Win();
+        Debug.Log("Against Snowman");
     }
 
-    void AttackIce(int aNum)
+    void AttackShark(int aNum)
     {
-
+        GameManager.Instance.Win();
+        Debug.Log("Against Shark");
     }
 
-    void AttackElectric(int aNum)
+    void AttackFireNewt(int aNum)
     {
-
+        GameManager.Instance.Win();
+        Debug.Log("Against Newt");
     }
 
-
-    void AttackSpace(int aNum)
+    void AttackJellyfish(int aNum)
     {
-
+        GameManager.Instance.Win();
+        Debug.Log("Against Jellyfish");
     }
 
 }
