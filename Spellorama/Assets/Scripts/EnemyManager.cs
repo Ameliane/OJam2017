@@ -109,4 +109,40 @@ public class EnemyManager : MonoBehaviour
         //DestroyImmediate(m_Enemy2);
         //m_Enemy2 = null;
     }
+
+    public void EnemyFall()
+    {
+        StartCoroutine(EnemyFallSequence_cr());
+    }
+
+    private IEnumerator EnemyFallSequence_cr()
+    {
+        float t = 0;
+        Vector2 start = m_Enemy1.transform.position;
+        Vector2 end = m_Enemy1.transform.position + new Vector3(0, -10, 0);
+        while (t < 2)
+        {
+            m_Enemy1.transform.position = Vector3.Lerp(start, end, t / 2);
+            t += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    public void EnemySquish()
+    {
+        StartCoroutine(EnemySquishSequence_cr());
+    }
+
+    private IEnumerator EnemySquishSequence_cr()
+    {
+        float t = 0;
+        Vector2 fullSize = m_Enemy1.transform.localScale;
+        Vector2 tinySize = new Vector2(m_Enemy1.transform.localScale.x, 0);
+        while (t < 2)
+        {
+            m_Enemy1.transform.localScale = Vector3.Lerp(fullSize, tinySize, t / 2);
+            t += Time.deltaTime;
+            yield return null;
+        }
+    }
 }

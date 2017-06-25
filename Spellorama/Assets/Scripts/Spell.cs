@@ -39,6 +39,7 @@ public class SpellDictionary
     public List<Sprite> m_Sprites;
     public List<Spell.SpellType> m_Types;
     public List<MonoBehaviour> m_Scripts;
+    public List<GameObject> m_Prefabs;
 
     public Sprite GetSprite(Spell.SpellType aType)
     {
@@ -52,5 +53,12 @@ public class SpellDictionary
         return m_Scripts[index];
     }
 
+    public void StartEffect(Spell.SpellType aType)
+    {
+        int index = m_Types.IndexOf(aType);
+
+        if (m_Prefabs[index] != null)
+            GameObject.Instantiate(m_Prefabs[index]);
+    }
 }
 

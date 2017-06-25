@@ -53,4 +53,9 @@ public class SpellManager : MonoBehaviour
         m_SpellDictionary.GetScript(aSprite).enabled = true;
     }
 
+    public void StartEffect(Spell.SpellType aType)
+    {
+        m_SpellDictionary.StartEffect(aType);
+    }
+
 }

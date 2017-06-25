@@ -24,6 +24,7 @@ public class Hole : MonoBehaviour
     {
 
         Debug.Log("Activating Hole Spell");
+        SpellManager.Instance.StartEffect(Spell.SpellType.Hole);
 
         switch (aType)
         {

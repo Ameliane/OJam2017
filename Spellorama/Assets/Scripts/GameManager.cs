@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour {
 
     int m_Life = 3;
 
+    bool m_IsSusceptible = false;
+
     void Awake()
     {
         if (Instance == null)
@@ -43,8 +45,15 @@ public class GameManager : MonoBehaviour {
         SpellManager.Instance.ResetAllSpells();
     }
 
+    public bool IsEnemySusceptible()
+    {
+        return m_IsSusceptible;
+    }
+
     public void Win()
     {
+        m_IsSusceptible = true;
+
         //Move Player
         StartCoroutine(MonsterDeathSequence_cr());
 
@@ -52,6 +61,8 @@ public class GameManager : MonoBehaviour {
 
     public void Lose()
     {
+        m_IsSusceptible = false;
+
         // Enemy Attack
         EnemyManager.Instance.EnemyAttack();
 
